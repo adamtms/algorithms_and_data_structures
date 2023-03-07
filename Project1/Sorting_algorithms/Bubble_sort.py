@@ -1,7 +1,7 @@
 def inputNumbers():
     return [int(x) for x in input().split()]
 
-def bumbleSort(array):
+def bubbleSort(array):
     l = len(array)
     for i in range(1, l):
         for j in range(l-1, i-1, -1):
@@ -10,5 +10,5 @@ def bumbleSort(array):
 
 if __name__ == '__main__':
     data = inputNumbers()
-    bumbleSort(data)
+    bubbleSort(data)
     print(data)
