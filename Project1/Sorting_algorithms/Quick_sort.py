@@ -7,7 +7,7 @@
 
 
 # Function to find the partition position
-def partition(array, low, high):
+def _partition(array, low, high):
 
 	# choose the rightmost element as pivot
 	pivot = array[high]
@@ -46,7 +46,7 @@ def quick_sort(array, low = None, high = None):
 		# Find pivot element such that
 		# element smaller than pivot are on the left
 		# element greater than pivot are on the right
-		pi = partition(array, low, high)
+		pi = _partition(array, low, high)
 
 		# Recursive call on the left of pivot
 		quick_sort(array, low, pi - 1)
