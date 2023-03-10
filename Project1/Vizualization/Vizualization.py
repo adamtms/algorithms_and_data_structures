@@ -11,7 +11,8 @@ def compare_sorting_times(labels, times, index):
         for algorithms_name, measurement in times.items():
             widths.append(measurement[index][label])
         ax = axs[graph_number//2][graph_number%2]
-        ax.bar(times.keys(), widths)
+        bar_container = ax.bar([s.replace("_sort", "") for s in times.keys()], widths)
+        ax.bar_label(bar_container, [f"{i:.1E}" if i < 0.1 else round(i,3) for i in widths], label_type="center", padding=7)
         ax.set_ylabel('Time (s)')
         ax.set_title(label)
         graph_number += 1

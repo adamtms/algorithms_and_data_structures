@@ -1,4 +1,4 @@
-def partition(array, low, high):
+def _partition(array, low, high):
   pivot = array[high]
   i = low - 1
   for j in range(low, high):
@@ -13,7 +13,7 @@ def quick_sort(array, low = 0, high = None):
   if high == None:
     high = len(array) - 1
   if low < high:
-    pi = partition(array, low, high)
+    pi = _partition(array, low, high)
     quick_sort(array, low, pi - 1)
     quick_sort(array, pi + 1, high)
 
