@@ -29,6 +29,8 @@ class SingleLinkedList:
             return None
         currentNode = self.head
         while currentNode != None and currentNode.key != key:
+            if currentNode.key > key:
+                return None
             currentNode = currentNode.next
         return currentNode
 
