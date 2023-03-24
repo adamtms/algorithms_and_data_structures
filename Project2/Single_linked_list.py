@@ -1,4 +1,3 @@
-
 class Node:
     def __init__(self, key, value, next = None):
         self.key = key
@@ -8,55 +7,57 @@ class Node:
     def __str__(self):
         return f"key = {self.key} value = {self.value}"
 
-    def getNodeByKey(self, key):
-        if(self.key == key):
-            return self
-        elif(self.key > key or self.next == None):
-            return None
-        return self.next.getNodeByKey(key)
-
-    def getMaxLesserElem(self, key):
-        if(self.next == None or self.next.key >= key):
-            return self
-        return self.next.getMaxLesserElem(key)
-
 class SingleLinkedList:
-    def __init__(self, head):
+    def __init__(self, head = None):
         self.head = head
 
     def __getitem__(self, key):
         item = self.search(key)
-        if(item == None):
+        if item == None :
             print("Given key doesn't exists")
         else:
             print(item)
     
+    def getMaxLesserElem(self, key):
+        currentNode = self.head
+        while currentNode.next != None and currentNode.next.key < key:
+            currentNode = currentNode.next
+        return currentNode
+
     def search(self, key):
-        return self.head.getNodeByKey(key)
+        if self.head == None:
+            return None
+        currentNode = self.head
+        while currentNode != None and currentNode.key != key:
+            currentNode = currentNode.next
+        return currentNode
 
     def insert(self, key, value):
-        if(self.search(key) != None):
+        if self.search(key) != None:
             print("Node with given key already exists")
             return
-        if(key < self.head.key):
+        if self.head == None:
+            self.head = Node(key, value)
+            return
+        if key < self.head.key:
             self.head = Node(key, value, self.head)
             return
-        previousNode = self.head.getMaxLesserElem(key)
+        previousNode = self.getMaxLesserElem(key)
         newNode = Node(key, value, previousNode.next)
         previousNode.next = newNode
 
     def remove(self, key):
-        if(self.head.key == key):
+        if self.head.key == key:
             self.head = self.head.next
             return
-        previousNode = self.head.getMaxLesserElem(key)
+        previousNode = self.getMaxLesserElem(key)
         previousNode.next = previousNode.next.next
 
 if __name__ == '__main__':
-    head = Node(0, 0)
-    singleLinkedList = SingleLinkedList(head)
+    singleLinkedList = SingleLinkedList()
 
     # insert test
+    singleLinkedList.insert(0, 0)
     singleLinkedList.insert(-1, 1)
     singleLinkedList.insert(1, 1)
     singleLinkedList.insert(-2, 2)
@@ -97,10 +98,8 @@ if __name__ == '__main__':
 
     #remove test
     singleLinkedList.remove(0)
-    singleLinkedList[0]
-    singleLinkedList.remove(-9)
-    singleLinkedList[-9]
-    singleLinkedList[-8]
-    singleLinkedList[-1]
+    singleLinkedList.remove(1)
+    singleLinkedList.remove(9)
+    singleLinkedList[9]
     singleLinkedList[1]
-    
+    singleLinkedList[0]
