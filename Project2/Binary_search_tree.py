@@ -45,74 +45,48 @@ class BinarySearchTree:
             else:
                 currentNode = currentNode.less
         return None
-    
-    def searchParent(self, key):
-        prevNode = None
-        currentNode = self.head
-        while currentNode != None:
-            if currentNode.key == key:
-                return prevNode
-            prevNode = currentNode
-            if key > currentNode.key:
-                currentNode = currentNode.greater
-            else:
-                currentNode = currentNode.less
-        return None
 
-    def insert(self, key, value):
-        if self.search(key) != None:
-            print("Node with given key already exists")
-            return 
-        if self.head == None:
-            self.head = Node(key, value)
+    def insert(self, key, value, currentNode = -1):
+        if currentNode == -1:
+            self.head = self.insert(key, value, self.head)
             return
-        prevNode = None
-        currentNode = self.head        
-        while currentNode != None:
-            prevNode = currentNode
-            if key > currentNode.key:
-                currentNode = currentNode.greater
-            else:
-                currentNode = currentNode.less
-        if key > prevNode.key:
-            prevNode.greater = Node(key, value)
+        if currentNode == None:
+            return Node(key, value)
+        if key < currentNode.key:
+            currentNode.less = self.insert(key, value, currentNode.less)
         else:
-             prevNode.less = Node(key, value)
-    
-    def findGreatestElemInSubtree(self, currentNode):
-        while currentNode.greater != None:
-            currentNode = currentNode.greater
+            currentNode.greater = self.insert(key, value, currentNode.greater)
         return currentNode
+    
+    def getMaxValue(self, currentNode):
+        if currentNode is None or currentNode.greater is None:
+            return currentNode
+        return self.getMaxValue(currentNode.greater)
 
-    def remove(self, key):
-        nodeToRemove = self.search(key)
-        if nodeToRemove == None:
-            print("Node with given key doesn't exists")
+    def remove(self, key, currentNode = -1):
+        if currentNode == -1:
+            self.head = self.remove(key, self.head)
             return
-        if nodeToRemove.less == None:
-            if nodeToRemove.greater == None:
-                if self.head.key == key:
-                    self.head = None
-                    return
-                parentOfNodeToRemove = self.searchParent(key)
-                if key > parentOfNodeToRemove.key:
-                    parentOfNodeToRemove.greater = None
-                else:
-                    parentOfNodeToRemove.less = None
-            else:
-                nodeToRemove.copyValuesFromAnotherNode(nodeToRemove.greater)
-
-        elif nodeToRemove.greater == None:
-            nodeToRemove.copyValuesFromAnotherNode(nodeToRemove.less)
+        if not currentNode:
+            return currentNode
+        elif key < currentNode.key:
+            currentNode.less = self.remove(key, currentNode.less)
+        elif key > currentNode.key:
+            currentNode.greater = self.remove(key, currentNode.greater)
         else:
-            nodeToSwitch = self.findGreatestElemInSubtree(nodeToRemove.less)
-            parentOfNodeToSwitch = self.searchParent(nodeToSwitch.key)
-            if parentOfNodeToSwitch.key == nodeToRemove.key:
-                parentOfNodeToSwitch.less = nodeToSwitch.less
-            else:
-                parentOfNodeToSwitch.greater = nodeToSwitch.less
-            nodeToRemove.value = nodeToSwitch.value
-            nodeToRemove.key = nodeToSwitch.key
+            if currentNode.less == None:
+                temp = currentNode.less
+                currentNode = None
+                return temp
+            elif currentNode.greater == None:
+                temp = currentNode.less
+                currentNode = None
+                return temp
+            temp = self.getMaxValue(currentNode.less)
+            currentNode.key = temp.key
+            currentNode.value = temp.value
+            currentNode.less = self.remove(temp.key, currentNode.less)
+        return currentNode
 
 if __name__ == "__main__":
     tree = BinarySearchTree()
