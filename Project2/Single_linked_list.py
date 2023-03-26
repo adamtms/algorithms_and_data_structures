@@ -49,6 +49,9 @@ class SingleLinkedList:
         previousNode.next = newNode
 
     def remove(self, key):
+        if self.search(key) == None:
+            print("Node with given key doesn't exists")
+            return
         if self.head.key == key:
             self.head = self.head.next
             return

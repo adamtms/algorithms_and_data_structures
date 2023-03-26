@@ -1,34 +1,32 @@
 import random
 
-def generateRandom(n=5_000, rang=None):
+def generateRandom(n=5_000, rang=None, data = None):
     if rang is None:
         rang = n*10
-    result = random.sample(range(rang), n)
-    return result
+    if not data:
+        data = random.sample(range(rang), n)
+    else:
+        random.shuffle(data)
+    return data
 
-def generateCondense(n=5_000):
-    result = generateRandom(n, n//10)
-    return result
+def generateIncreasing(n=5_000, data = None, rang=None):
+    if not data:
+        data = generateRandom(n, rang = rang)
+    data.sort()
+    return data
 
-def generateSparse(n=5_000):
-    result = generateRandom(n, n*1000)
-    return result
+def generateDecreasing(n=5_000, data = None, rang=None):
+    if not data:
+        data = generateRandom(n, rang = rang)
+    data.sort(reverse=True)
+    return data
 
-def generateIncreasing(n=5_000, rang=None):
-    result = generateRandom(n, rang)
-    result.sort()
-    return result
-
-def generateDecreasing(n=5_000, rang=None):
-    result = generateRandom(n, rang)
-    result.sort(reverse=True)
-    return result
-
-def generateVShape(n=5_000, rang=None):
+def generateVShape(n=5_000, data = None, rang=None):
+    if not data:
+        data = generateDecreasing(n, rang = rang)
     first = []
     last = []
-    result = generateDecreasing(n, rang)
-    for i, value in enumerate(result):
+    for i, value in enumerate(data):
         if i % 2 == 0:
             first.append(value)
         else:

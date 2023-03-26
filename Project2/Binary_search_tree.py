@@ -1,3 +1,7 @@
+import sys
+
+sys.setrecursionlimit(int(1e8))
+
 class Node:
     def __init__(self, key, value, less = None, greater = None):
         self.key = key
