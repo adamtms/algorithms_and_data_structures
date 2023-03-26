@@ -22,8 +22,7 @@ def generateDecreasing(n=5_000, data = None, rang=None):
     return data
 
 def generateVShape(n=5_000, data = None, rang=None):
-    if not data:
-        data = generateDecreasing(n, rang = rang)
+    data = generateDecreasing(n, rang = rang, data = data)
     first = []
     last = []
     for i, value in enumerate(data):
