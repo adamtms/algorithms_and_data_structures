@@ -24,13 +24,13 @@ class BinarySearchTree:
 
     def __getitem__(self, key):
         item = self.search(key)
-        if item == None:
+        if item is None:
             print("Given key doesn't exists")
         else:
             print(item)
 
     def printInOrder(self, currentNode):
-        if currentNode == None:
+        if currentNode is None:
             return 
         self.printInOrder(currentNode.less)
         print(currentNode.key , end=' ')
@@ -41,7 +41,7 @@ class BinarySearchTree:
 
     def search(self, key):
         currentNode = self.head
-        while currentNode != None:
+        while currentNode is not None:
             if currentNode.key == key:
                 return currentNode
             elif key > currentNode.key:
@@ -54,7 +54,7 @@ class BinarySearchTree:
         if currentNode == -1:
             self.head = self.insert(key, value, self.head)
             return
-        if currentNode == None:
+        if currentNode is None:
             return Node(key, value)
         if key < currentNode.key:
             currentNode.less = self.insert(key, value, currentNode.less)
@@ -78,11 +78,11 @@ class BinarySearchTree:
         elif key > currentNode.key:
             currentNode.greater = self.remove(key, currentNode.greater)
         else:
-            if currentNode.less == None:
+            if currentNode.less is None:
                 temp = currentNode.less
                 currentNode = None
                 return temp
-            elif currentNode.greater == None:
+            elif currentNode.greater is None:
                 temp = currentNode.less
                 currentNode = None
                 return temp

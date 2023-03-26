@@ -13,32 +13,32 @@ class SingleLinkedList:
 
     def __getitem__(self, key):
         item = self.search(key)
-        if item == None :
+        if item is None :
             print("Given key doesn't exists")
         else:
             print(item)
     
     def getMaxLesserElem(self, key):
         currentNode = self.head
-        while currentNode.next != None and currentNode.next.key < key:
+        while currentNode.next is not None and currentNode.next.key < key:
             currentNode = currentNode.next
         return currentNode
 
     def search(self, key):
-        if self.head == None:
+        if self.head is None:
             return None
         currentNode = self.head
-        while currentNode != None and currentNode.key != key:
+        while currentNode is not None and currentNode.key != key:
             if currentNode.key > key:
                 return None
             currentNode = currentNode.next
         return currentNode
 
     def insert(self, key, value):
-        if self.search(key) != None:
+        if self.search(key) is not None:
             print("Node with given key already exists")
             return
-        if self.head == None:
+        if self.head is None:
             self.head = Node(key, value)
             return
         if key < self.head.key:
@@ -49,7 +49,7 @@ class SingleLinkedList:
         previousNode.next = newNode
 
     def remove(self, key):
-        if self.search(key) == None:
+        if self.search(key) is None:
             print("Node with given key doesn't exists")
             return
         if self.head.key == key:
