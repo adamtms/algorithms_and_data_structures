@@ -20,7 +20,7 @@ def testGraph(Graph):
     print("Should be [2, 3, 4, 0]")
     print(graph.getSuccesors(4))
     print("Should be []")
-    print(f"{graph.checkEdge(4, 5)} == False")
+    print(f"{graph.checkEdge(4, 3)} == False")
     print(f"{graph.checkEdge(1, 2)} == True")
     print(f"{graph.checkEdge(0, 1)} == False")
     addNodes(graph, nodes2)

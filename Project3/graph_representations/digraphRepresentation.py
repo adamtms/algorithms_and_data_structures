@@ -1,3 +1,5 @@
+from testGraph import testGraph
+
 class Digraph:
     def __init__(self):
         pass
@@ -14,3 +16,6 @@ class Digraph:
     def getSuccesors(self, node):
         # return list of all successors of given node
         pass
+
+if __name__ == "__main__":
+    testGraph(Digraph)
