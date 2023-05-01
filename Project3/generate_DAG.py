@@ -1,5 +1,11 @@
-def generating_matrix(nodes_num: int=100):
-    matrix = [[0 for _ in range(x + 1)] + [1 for _ in range(nodes_num - x - 1)] for x in range(nodes_num)]
-    print(*matrix, sep="\n")
+import random
 
-generating_matrix(10)
+# Generate nested list, if elem in position x, y is equal to:
+#   -1, exists edge from y to x
+#    1, exists egde from x to y
+#    0, doesn't exists edge between x and y
+# Nodes are indexed from 0
+def generateDAG(nodesNum: int=100):
+    matrix = [[-1 for _ in range(x)] + [0] + [1 for _ in range(nodesNum - x - 1)] for x in range(nodesNum)]
+    random.shuffle(matrix)
+    return matrix
