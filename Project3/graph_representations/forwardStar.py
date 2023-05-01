@@ -148,10 +148,10 @@ class AVLTree():
     
 class forwardStar:
     def __init__(self):
-        self.nodes = []
+        self.nodes = {}
         
     def addNode(self, node):
-        self.nodes.append(AVLTree())
+        self.nodes[node] = AVLTree()
 
     def addEdge(self, startNode, endNode):
         self.nodes[startNode].insert(endNode)
@@ -161,7 +161,7 @@ class forwardStar:
 
     def getEdges(self):
         edges = []
-        for key, tree in enumerate(self.nodes):
+        for key, tree in self.nodes.items():
             for value in tree.getValues():
                 edges.append((key, value))
         return edges
