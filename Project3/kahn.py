@@ -1,5 +1,5 @@
 from graph_representations.digraphRepresentation import Digraph
-from graph_representations.arcList import arcList
+
 
 def kahn_sort(digraph: Digraph):
     num_predecessor = digraph.getNumPredecessorDict()
@@ -22,6 +22,7 @@ def kahn_sort(digraph: Digraph):
     return output
 
 if __name__ == "__main__":
+    from graph_representations.arcList import arcList
     graph = arcList()
     edges = [ (1, 2), (1, 3), (1, 4), (1, 0), (2, 4), (2, 3), (2, 0), (0, 3), (0, 4) ]
     for edge in edges:

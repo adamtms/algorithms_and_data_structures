@@ -26,6 +26,9 @@ class adjacencyMatrix:
     def checkEdge(self, startNode, endNode):
         return self.matrix[startNode][endNode] == 1
     
+    def getNodes(self):
+        return self.nodes
+
     def getEdges(self):
         edges = []
         for startIndex in range(len(self.nodes)):

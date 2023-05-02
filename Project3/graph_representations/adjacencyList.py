@@ -11,6 +11,9 @@ class adjacencyList:
     def checkEdge(self, startNode, endNode):
         return endNode in self.nodes[startNode]
 
+    def getNodes(self):
+        return list(self.nodes.keys())
+
     def getEdges(self):
         edges = []
         for key, values in self.nodes.items():

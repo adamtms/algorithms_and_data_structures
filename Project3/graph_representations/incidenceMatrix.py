@@ -33,6 +33,9 @@ class IncidenceMatrix:
                 return True
         return False
 
+    def getNodes(self):
+        return self.nodes
+
     def getEdges(self):
         edges = []
         for edgeIndex in range(len(self.matrix[0])):

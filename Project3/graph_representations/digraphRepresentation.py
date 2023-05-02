@@ -8,6 +8,9 @@ class Digraph:
     def checkEdge(self, startNode, endNode) -> bool:
         # return true if enge exists, false otherwise
         pass
+    def getNodes(self):
+        # return list of all nodes
+        pass
     def getEdges(self) -> list:
         # return list of all edges
         pass

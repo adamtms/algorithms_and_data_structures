@@ -158,6 +158,9 @@ class forwardStar:
     def checkEdge(self, startNode, endNode):
         return self.nodes[startNode].search(endNode)
 
+    def getNodes(self):
+        return list(self.nodes.keys())
+
     def getEdges(self):
         edges = []
         for key, tree in self.nodes.items():
