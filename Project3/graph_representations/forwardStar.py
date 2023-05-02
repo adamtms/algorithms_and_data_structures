@@ -1,5 +1,3 @@
-from testGraph import testGraph
-
 class Node():
     def __init__(self, key):
         self.key = key
@@ -179,4 +177,5 @@ class forwardStar:
 
 
 if __name__ == "__main__":
+    from testGraph import testGraph
     testGraph(forwardStar)

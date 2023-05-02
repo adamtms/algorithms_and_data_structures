@@ -1,5 +1,3 @@
-from testGraph import testGraph
-
 class arcList:
     def __init__(self):
         self.edges = []
@@ -37,4 +35,5 @@ class arcList:
         return predecessor_num
 
 if __name__ == "__main__":
+    from testGraph import testGraph
     testGraph(arcList)

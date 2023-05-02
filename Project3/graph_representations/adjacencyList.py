@@ -1,5 +1,3 @@
-from testGraph import testGraph
-
 class adjacencyList:
     def __init__(self):
         self.nodes = {}
@@ -31,4 +29,5 @@ class adjacencyList:
         return predecessor_num
 
 if __name__ == "__main__":
+    from testGraph import testGraph
     testGraph(adjacencyList)

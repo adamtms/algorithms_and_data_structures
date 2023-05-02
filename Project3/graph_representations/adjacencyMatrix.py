@@ -1,5 +1,3 @@
-from testGraph import testGraph
-
 class adjacencyMatrix:
     def __init__(self):
         self.matrix = []
@@ -53,4 +51,5 @@ class adjacencyMatrix:
         return predecessor_num
 
 if __name__ == "__main__":
+    from testGraph import testGraph
     testGraph(adjacencyMatrix)
