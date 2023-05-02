@@ -16,6 +16,9 @@ class Digraph:
     def getSuccesors(self, node):
         # return list of all successors of given node
         pass
+    def getNumPredecessorDict(self):
+        # return dict of all nodes with coresonding number of predecessors
+        pass
 
 if __name__ == "__main__":
     testGraph(Digraph)

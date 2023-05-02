@@ -11,7 +11,7 @@ def testGraph(Graph):
     nodes1 = [i for i in range(5)]
     edges1 = [ (1, 2), (1, 3), (1, 4), (1, 0), (2, 4), (2, 3), (2, 0), (0, 3), (0, 4) ]
     nodes2 = [i for i in range(5, 10)]
-    edges2 = [ (1, 9), (1, 6), (4, 5), (3, 7), (2, 4), (2, 3) ]
+    edges2 = [ (1, 9), (1, 6), (4, 5), (3, 7) ]
     addNodes(graph, nodes1)
     addEdges(graph, edges1)
     print(graph.getEdges())
@@ -23,6 +23,8 @@ def testGraph(Graph):
     print(f"{graph.checkEdge(4, 3)} == False")
     print(f"{graph.checkEdge(1, 2)} == True")
     print(f"{graph.checkEdge(0, 1)} == False")
+    print(graph.getNumPredecessorDict())
+    print("Should be {0: 2, 1: 0, 2: 1, 3: 3, 4: 3}")
     addNodes(graph, nodes2)
     addEdges(graph, edges2)
     print(graph.getEdges())
@@ -34,3 +36,5 @@ def testGraph(Graph):
     print(f"{graph.checkEdge(4, 5)} == True")
     print(f"{graph.checkEdge(1, 2)} == True")
     print(f"{graph.checkEdge(0, 1)} == False")
+    print(graph.getNumPredecessorDict())
+    print("Should be {0: 2, 1: 0, 2: 1, 3: 3, 4: 3, 5: 1, 6: 1, 7: 1, 8: 0, 9: 1}")

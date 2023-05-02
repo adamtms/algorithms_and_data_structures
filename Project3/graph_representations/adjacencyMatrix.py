@@ -43,6 +43,14 @@ class adjacencyMatrix:
             if self.matrix[startIndex][endIndex] == 1:
                 succesors.append(endIndex)
         return succesors
+    
+    def getNumPredecessorDict(self):
+        predecessor_num = {node : 0 for node in self.nodes}
+        for row in self.matrix:
+            for value, node in zip(row, self.nodes):
+                if value:
+                    predecessor_num[node] += 1
+        return predecessor_num
 
 if __name__ == "__main__":
     testGraph(adjacencyMatrix)

@@ -57,6 +57,14 @@ class IncidenceMatrix:
                     if self.matrix[i][edgeIndex] == -1:
                         succesors.append(self.nodes[i])
         return succesors
+    
+    def getNumPredecessorDict(self):
+        predecessor_num = {node : 0 for node in self.nodes}
+        for node, row in zip(self.nodes, self.matrix):
+            for value in row:
+                if value == -1:
+                    predecessor_num[node] += 1
+        return predecessor_num
 
 if __name__ == "__main__":
     testGraph(IncidenceMatrix)

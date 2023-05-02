@@ -22,6 +22,13 @@ class adjacencyList:
 
     def getSuccesors(self, node):
         return self.nodes[node]
+    
+    def getNumPredecessorDict(self):
+        predecessor_num = {node : 0 for node in self.nodes.keys()}
+        for values in self.nodes.values():
+            for value in values:
+                predecessor_num[value] += 1
+        return predecessor_num
 
 if __name__ == "__main__":
     testGraph(adjacencyList)

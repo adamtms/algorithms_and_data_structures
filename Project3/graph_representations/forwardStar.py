@@ -146,6 +146,7 @@ class AVLTree():
             return currentNode
         return self.getMaxKey(currentNode.greater)
     
+
 class forwardStar:
     def __init__(self):
         self.nodes = {}
@@ -168,6 +169,14 @@ class forwardStar:
 
     def getSuccesors(self, node):
         return self.nodes[node].getValues()
+    
+    def getNumPredecessorDict(self):
+        predecessor_num = {node : 0 for node in self.nodes.keys()}
+        for node in self.nodes.values():
+            for value in node.getValues():
+                predecessor_num[value] += 1
+        return predecessor_num
+
 
 if __name__ == "__main__":
     testGraph(forwardStar)
