@@ -27,7 +27,7 @@ class adjacencyMatrix:
         return self.matrix[startNode][endNode] == 1
     
     def getNodes(self):
-        return self.nodes
+        return set(self.nodes)
 
     def getEdges(self):
         edges = []

@@ -16,7 +16,7 @@ class arcList:
         for node1, node2 in self.edges:
             nodes.add(node1)
             nodes.add(node2)
-        return list(nodes)
+        return set(nodes)
 
     def getEdges(self):
         return self.edges

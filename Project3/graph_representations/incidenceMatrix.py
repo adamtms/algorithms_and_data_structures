@@ -34,7 +34,7 @@ class IncidenceMatrix:
         return False
 
     def getNodes(self):
-        return self.nodes
+        return set(self.nodes)
 
     def getEdges(self):
         edges = []

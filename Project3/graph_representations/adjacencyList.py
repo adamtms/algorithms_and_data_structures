@@ -12,7 +12,7 @@ class adjacencyList:
         return endNode in self.nodes[startNode]
 
     def getNodes(self):
-        return list(self.nodes.keys())
+        return set(self.nodes.keys())
 
     def getEdges(self):
         edges = []

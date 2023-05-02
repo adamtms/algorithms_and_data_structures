@@ -159,7 +159,7 @@ class forwardStar:
         return self.nodes[startNode].search(endNode)
 
     def getNodes(self):
-        return list(self.nodes.keys())
+        return set(self.nodes.keys())
 
     def getEdges(self):
         edges = []

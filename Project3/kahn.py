@@ -1,15 +1,16 @@
 from graph_representations.digraphRepresentation import Digraph
 
+from collections import deque
 
 def kahn_sort(digraph: Digraph):
     num_predecessor = digraph.getNumPredecessorDict()
-    queue = [x for x, y in num_predecessor.items() if y == 0]
+    queue = deque([x for x, y in num_predecessor.items() if y == 0])
     visited = 0
     output = []
 
     while queue:
         visited += 1
-        node = queue.pop()
+        node = queue.popleft()
         output.append(node)
         for neighbour in digraph.getSuccesors(node):
             num_predecessor[neighbour] -= 1
