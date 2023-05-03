@@ -4,10 +4,10 @@ from collections import deque
 
 def __dfs(graph: Digraph, node, visited, output):
     visited.add(node)
-    neighbors = graph.getSuccesors(node)
-    for neighbor in neighbors:
-        if neighbor not in visited:
-            __dfs(graph, neighbor, visited, output)
+    succesors = graph.getSuccesors(node)
+    for successor in succesors:
+        if successor not in visited:
+            __dfs(graph, successor, visited, output)
     output.appendleft(node)
 
 def dfs_sort(digraph: Digraph):
