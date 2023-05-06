@@ -16,7 +16,7 @@ def testGraph(Graph):
     addEdges(graph, edges1)
     print(graph.getNodes())
     print(f"Should be {nodes1}")
-    print(graph.getSuccesors(1))
+    print(graph.getEdges())
     print(f"Should be {edges1}")
     print(graph.getSuccesors(1))
     print("Should be [2, 3, 4, 0]")
