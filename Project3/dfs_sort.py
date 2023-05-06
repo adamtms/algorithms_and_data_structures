@@ -15,7 +15,7 @@ def dfs_sort(digraph: Digraph):
     output = deque()
     for node in digraph.getNodes():
         if node not in visited:
-            __dfs(graph, node, visited, output)
+            __dfs(digraph, node, visited, output)
     return list(output)
 
 if __name__ == "__main__":

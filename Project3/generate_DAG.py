@@ -6,6 +6,11 @@ import random
 #    0, doesn't exists edge between x and y
 # Nodes are indexed from 0
 def generateDAG(nodesNum: int=100):
-    matrix = [[-1 for _ in range(x)] + [0] + [1 for _ in range(nodesNum - x - 1)] for x in range(nodesNum)]
-    random.shuffle(matrix)
+    initial_matrix = [[0 for _ in range(x+1)] + [1 for _ in range(nodesNum - x - 1)] for x in range(nodesNum)]
+    nodes = [i for i in range(nodesNum)]
+    random.shuffle(nodes)
+    matrix = [[0 for _ in range(nodesNum)] for _ in range(nodesNum)]
+    for startNodeIndex in range(nodesNum):
+        for endNodeIndex in range(nodesNum):
+            matrix[startNodeIndex][endNodeIndex] = initial_matrix[nodes[startNodeIndex]][nodes[endNodeIndex]]
     return matrix

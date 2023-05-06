@@ -19,15 +19,9 @@ class IncidenceMatrix:
             else:
                 self.matrix[index].append(0)
 
-    def getNodeIndex(self, node):
-        for index in range(len(self.nodes)):
-            if self.nodes[index] == node:
-                return index
-        return -1
-
     def checkEdge(self, startNode, endNode):
-        startNodeIndex = self.getNodeIndex(startNode)
-        endNodeIndex = self.getNodeIndex(endNode)
+        startNodeIndex = self.nodes.index(startNode)
+        endNodeIndex = self.nodes.index(endNode)
         for index in range(len(self.matrix[0])):
             if self.matrix[startNodeIndex][index] == 1 and self.matrix[endNodeIndex][index] == -1:
                 return True
@@ -51,7 +45,7 @@ class IncidenceMatrix:
 
     def getSuccesors(self, node):
         succesors = []
-        nodeIndex = self.getNodeIndex(node)
+        nodeIndex = self.nodes.index(node)
         for edgeIndex in range(len(self.matrix[0])):
             if self.matrix[nodeIndex][edgeIndex] == 1:
                 for i in range(len(self.nodes)):

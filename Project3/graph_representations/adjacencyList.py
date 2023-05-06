@@ -1,4 +1,4 @@
-class adjacencyList:
+class AdjacencyList:
     def __init__(self):
         self.nodes = {}
         
@@ -33,4 +33,4 @@ class adjacencyList:
 
 if __name__ == "__main__":
     from testGraph import testGraph
-    testGraph(adjacencyList)
+    testGraph(AdjacencyList)

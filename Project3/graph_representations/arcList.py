@@ -1,4 +1,4 @@
-class arcList:
+class ArcList:
     def __init__(self):
         self.edges = []
         
@@ -43,4 +43,4 @@ class arcList:
 
 if __name__ == "__main__":
     from testGraph import testGraph
-    testGraph(arcList)
+    testGraph(ArcList)

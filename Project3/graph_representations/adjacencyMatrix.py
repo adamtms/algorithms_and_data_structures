@@ -1,4 +1,4 @@
-class adjacencyMatrix:
+class AdjacencyMatrix:
     def __init__(self):
         self.matrix = []
         self.nodes = []
@@ -12,15 +12,9 @@ class adjacencyMatrix:
                 row.append(0)
             self.matrix.append([0] * len(self.nodes))
 
-    def getNodeIndex(self, node):
-        for index in range(len(self.nodes)):
-            if self.nodes[index] == node:
-                return index
-        return -1
-
     def addEdge(self, startNode, endNode):
-        startNodeIndex = self.getNodeIndex(startNode)
-        endNodeIndex = self.getNodeIndex(endNode)
+        startNodeIndex = self.nodes.index(startNode)
+        endNodeIndex = self.nodes.index(endNode)
         self.matrix[startNodeIndex][endNodeIndex] = 1
 
     def checkEdge(self, startNode, endNode):
@@ -38,7 +32,7 @@ class adjacencyMatrix:
         return edges
     
     def getSuccesors(self, node):
-        startIndex = self.getNodeIndex(node)
+        startIndex = self.nodes.index(node)
         succesors = []
         for endIndex in range(len(self.nodes)):
             if self.matrix[startIndex][endIndex] == 1:
@@ -55,4 +49,4 @@ class adjacencyMatrix:
 
 if __name__ == "__main__":
     from testGraph import testGraph
-    testGraph(adjacencyMatrix)
+    testGraph(AdjacencyMatrix)

@@ -145,7 +145,7 @@ class AVLTree():
         return self.getMaxKey(currentNode.greater)
     
 
-class forwardStar:
+class ForwardStar:
     def __init__(self):
         self.nodes = {}
         
@@ -181,4 +181,4 @@ class forwardStar:
 
 if __name__ == "__main__":
     from testGraph import testGraph
-    testGraph(forwardStar)
+    testGraph(ForwardStar)
