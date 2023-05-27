@@ -55,9 +55,15 @@ def generateGraphWithoutECandHC(n = 100, density = 0.5):
     return graph
 
 if __name__ == "__main__":
-    # for i in range(20):
-    #     graph = generateGraphWithHC(15)
-    #     print(f"{i}: {robertsFlores(graph)}")
+    for i in range(20):
+        graph = generateGraphWithHC(10)
+        print(f"{i}: {bool(robertsFlores(graph))}")
+    for i in range(20):
+        graph = generateGraphWithoutECandHC(10)
+        print(f"{i}: {bool(robertsFlores(graph))}")
     for i in range(20):
         graph = generateGraphWithEC(100, 0.3)
-        print(f"{i}: {hierholzer(graph)}")
+        print(f"{i}: {bool(hierholzer(graph))}")
+    for i in range(20):
+        graph = generateGraphWithoutECandHC(100, 0.3)
+        print(f"{i}: {bool(hierholzer(graph))}")
