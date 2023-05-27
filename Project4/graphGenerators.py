@@ -1,6 +1,7 @@
 import random
 from adjacencyList import AdjacencyList
 from robertsFlores import robertsFlores
+from hierholzer import hierholzer
 
 def generateGraphWithHC(n = 100, density = 0.5):
     graph = AdjacencyList()
@@ -19,7 +20,30 @@ def generateGraphWithHC(n = 100, density = 0.5):
         random.shuffle(graph.nodes[startNode])
     return graph
 
+def generateGraphWithEC(n = 100, density = 0.5):
+    graph = AdjacencyList()
+    for i in range(1, n+1):
+        graph.addNode(i)
+
+    for startNode in range(1, n + 1):
+        for endNode in range(startNode+1, n):
+            if random.random() <= density:
+                graph.addEdge(startNode, endNode)
+        random.shuffle(graph.nodes[startNode])
+
+    for i in range(1, n):
+        if len(graph.nodes[i]) % 2:
+            graph.addEdge(i, n)
+    
+    # for key, nodes in graph.nodes.items():
+    #     print(f"{key}: {nodes}")
+    
+    return graph
+
 if __name__ == "__main__":
+    # for i in range(20):
+    #     graph = generateGraphWithHC(15)
+    #     print(f"{i}: {robertsFlores(graph)}")
     for i in range(20):
-        graph = generateGraphWithHC(15)
-        print(f"{i}: {robertsFlores(graph)}")
+        graph = generateGraphWithEC(100, 0.3)
+        print(f"{i}: {hierholzer(graph)}")
