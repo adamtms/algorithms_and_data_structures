@@ -16,7 +16,7 @@ def robertsFlores(graph):
             numberOfVisitedChilds[actualNode] = 0
             continue
         if len(path) == len(nodes):
-            if graph.checkEdge(path[1], path[0]) and path[1] + path[-1]:
+            if graph.checkEdge(path[-1], path[0]) and path[1] != path[-1]:
                 print(f"Path: {path}")
                 print("HC found")
                 return True
