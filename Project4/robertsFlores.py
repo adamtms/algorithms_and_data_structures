@@ -10,19 +10,19 @@ def robertsFlores(graph):
 
     while(path):
         actualNode = path[-1]
-        print(f"Path: {path}")
         if numberOfVisitedChilds[actualNode] == len(graph.nodes[actualNode]):
             path.pop(-1)
             numberOfVisitedChilds[actualNode] = 0
             continue
         if len(path) == len(nodes):
             if graph.checkEdge(path[-1], path[0]) and path[1] != path[-1]:
-                print(f"Path: {path}")
-                print("HC found")
+                # print(f"Path: {path}")
+                # print("HC found")
                 return True
         if graph.nodes[actualNode][numberOfVisitedChilds[actualNode]] not in path:
             path.append(graph.nodes[actualNode][numberOfVisitedChilds[actualNode]])
         numberOfVisitedChilds[actualNode] += 1
+    return False
         
 def test(nodes, edges):
     graph = AdjacencyList()
