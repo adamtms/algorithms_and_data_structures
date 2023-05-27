@@ -8,6 +8,8 @@ class AdjacencyList:
         self.nodes[node] = []
 
     def addEdge(self, startNode, endNode):
+        if self.checkEdge(startNode, endNode):
+            return
         self.nodes[startNode].append(endNode)
         self.nodes[endNode].append(startNode)
 
