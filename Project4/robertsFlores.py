@@ -17,11 +17,12 @@ def robertsFlores(graph):
         if len(path) == len(nodes):
             if graph.checkEdge(path[-1], path[0]) and path[1] != path[-1]:
                 # print(f"Path: {path}")
-                # print("HC found")
+                print("Found Hamiltonial Cycle")
                 return True
         if graph.nodes[actualNode][numberOfVisitedChilds[actualNode]] not in path:
             path.append(graph.nodes[actualNode][numberOfVisitedChilds[actualNode]])
         numberOfVisitedChilds[actualNode] += 1
+    print("Not found Hamiltonial Cycle")
     return False
         
 def test(nodes, edges):

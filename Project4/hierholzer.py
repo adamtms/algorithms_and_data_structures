@@ -3,6 +3,7 @@ from collections import defaultdict
 def hierholzer(graph):
     # Step 1: Check if the graph has an Eulerian cycle
     if not is_eulerian(graph):
+        print("Not found Eulerian Cycle")
         return None
 
     # Step 2: Choose a starting vertex
@@ -27,6 +28,7 @@ def hierholzer(graph):
             path.append(stack.pop())
 
     # Step 7: Return the reversed path
+    print("Found Eulerian Cycle")
     return path[::-1]
 
 
