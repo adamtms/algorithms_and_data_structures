@@ -1,5 +1,5 @@
 from generate import Instance
-def greedy(instance: Instance) -> dict:
+def greedy(instance: Instance) -> tuple[int, list[tuple[int]]]:
     sorted_items = sorted(instance.items, key=lambda x: x[1]/x[0], reverse=True)
     capacity = instance.capacity
     out_values = 0
