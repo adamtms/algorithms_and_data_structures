@@ -10,6 +10,15 @@ class Instance:
 
     def __repr__(self) -> str:
         return f"({self.capacity=}, {self.num_items=}, {self.items=})"
+    
+    def result_is_correct(self, choosen_elems):
+        actual_capacity = 0
+        for elem in choosen_elems:
+            weight, _ = elem
+            actual_capacity += weight
+            if actual_capacity > self.capacity:
+                return False
+        return True
 
 def get_instance(capacity: int = 20, num_items: int = 10, weight_range: tuple[int] = (1,10), 
                  value_range: tuple[int] = (1,5)) -> Instance:
