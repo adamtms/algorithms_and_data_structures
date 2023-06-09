@@ -1,6 +1,8 @@
 from random import randint
 
-class Instance:
+class Instance():
+    __slots__ = ("capacity", "num_items", "items", "weights", "values")
+
     def __init__(self, capacity, num_items, items) -> None:
         self.capacity: int = capacity
         self.num_items: int = num_items
