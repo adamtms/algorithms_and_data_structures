@@ -28,7 +28,3 @@ if __name__ == "__main__":
         inst = get_instance()
         value1, items1 = brute(inst)
         value2, items2 = recursive(inst)
-        print(items2)
-        print(inst.result_is_correct(items2))
-        if value1 != value2:
-            print("You fucked up")
