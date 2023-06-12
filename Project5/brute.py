@@ -5,7 +5,7 @@ def brute(instance: Instance) -> tuple[int, list[tuple[int]]]:
     max_capacity = instance.capacity
     best_comb = []
     best_value = 0
-    for i in range(1, len(items)):
+    for i in range(1, len(items)+1):
         for comb in combinations(items, i):
             total_value = 0
             total_cap_used = 0
