@@ -26,7 +26,7 @@ class Instance():
 def get_instance(capacity: int = None, num_items: int = 10, weight_range: tuple[int] = (1,10), 
                  value_range: tuple[int] = (1,5)) -> Instance:
     if capacity == None:
-        capacity = num_items * mean(weight_range)
+        capacity = int(num_items * mean(weight_range))
     instance = Instance(capacity, num_items,
                 [(randint(*weight_range), randint(*value_range)) for i in range(num_items)])
     return instance
